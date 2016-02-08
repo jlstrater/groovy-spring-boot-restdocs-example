@@ -1,27 +1,27 @@
-# Spring Boot Actuator Sample
+# Groovy Spring Boot RESTdocs Example
 
-You have just created a simple Spring Boot project in Groovy incorporating the
-Actuator. This includes everything you need to run the application. In this
-case, that's a simple JSON endpoint.
+This project is an example of a groovy spring boot app with Spring RESTdocs added to the spock tests for the talk `Test-Driven Approaches to Documenting RESTful APIs` as presented by Jennifer Strater.
 
-In this project you get:
+You can see this talk at any of the following events:
 
-* A Gradle build file
-* An application class, `SampleApplication`, implementing a single JSON endpoint
-* A JUnit test case for `SampleApplication`
+Groovy Users of Minnesota - Feb 9, 2016
 
-You can build and run this sample using Gradle (>1.6):
+Twin Cities Code Camp - April 16, 2016
+
+The accompanying slides are available at: TBA
+
+-----
+
+You can build and run this sample using Gradle:
 
 ```
 $ gradle run
 ```
 
-If you want to run the application outside of Gradle, then first build the JARs
-and then use the `java` command:
+Or the Gradle Wrapper:
 
 ```
-$ gradle build
-$ java -jar build/libs/*.jar
+$ ./gradlew run
 ```
 
-Then access the app via a browser (or curl) on http://localhost:8080.
+Then access the app via a browser (or curl) on http://localhost:8080 to see the docs.
