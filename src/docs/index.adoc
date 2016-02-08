@@ -1,0 +1,94 @@
+= Example API Guide
+Jenn Strater;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+The Example API is a RESTful web service that shows how Spring REST docs works.
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+The Example API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource, overwrites all fields
+
+| `PATCH`
+| Used for partial updates to an existing resource
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+The Example API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes. For example,
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+
+| `405 Method Not Allowed`
+| The type of request for this resource is not allowed. For example, some endpoints may be GET only.
+Trying a POST will return this message.
+|===
+
+For more status codes, see the https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html[w3 standard]
+
+////
+[[overview-headers]]
+== Headers
+
+Every response has the following header(s):
+
+include::{snippets}/headers-example/response-headers.adoc[]
+////
+[[overview-errors]]
+== Errors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
+that describes the problem. The error object has the following structure:
+
+include::{snippets}/error-example/response-fields.adoc[]
+
+For example, a request that attempts to apply a non-existent tag to a note will produce a
+`400 Bad Request` response:
+
+include::{snippets}/error-example/http-response.adoc[]
+
+[[resources]]
+= Resources

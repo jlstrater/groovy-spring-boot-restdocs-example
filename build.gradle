@@ -1,6 +1,7 @@
 apply plugin: "groovy"
 apply plugin: "spring-boot"
 apply plugin: "application"
+apply plugin: 'org.asciidoctor.convert'
 
 sourceCompatibility = "1.6"
 targetCompatibility = "1.8"
@@ -14,10 +15,13 @@ buildscript {
         springBootVersion = '1.3.0.RELEASE'
     }    
     repositories {
+        mavenLocal()
+        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
     }
 }
 
@@ -36,3 +40,33 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     testCompile "org.springframework.boot:spring-boot-starter-test"
 }
+
+asciidoctor {
+    dependsOn test
+    sourceDir = file('src/docs')
+    outputDir "$projectDir/src/main/resources/public"
+//    inputs.dir snippetsDir
+    backends 'html5'
+    attributes 'source-highlighter' : 'prettify',
+            'imagesdir':'images',
+            'toc':'left',
+            'icons': 'font',
+            'setanchors':'true',
+            'idprefix':'',
+            'idseparator':'-',
+            'docinfo1':'true' //,    'snippets': snippetsDir,
+}
+
+
+task cleanTempDir(type: Delete) {
+    delete fileTree(dir: "src/main/resources/public")
+}
+
+clean {
+    dependsOn cleanTempDir
+}
+
+build {
+    dependsOn asciidoctor
+}
+

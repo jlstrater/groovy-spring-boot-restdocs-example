@@ -16,16 +16,23 @@
 
 package sample
 
+import groovy.transform.CompileStatic
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
+@CompileStatic
 @SpringBootApplication
-@RestController
-class SampleApplication {
+class SampleApplication extends WebMvcConfigurerAdapter {
 
 	static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleApplication.class, args)
+	}
+
+	@Override
+	void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController('/').setViewName('forward:/html5/index.html')
 	}
 
 }

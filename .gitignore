@@ -12,3 +12,6 @@ gradle-app.setting
 
 .idea
 *.iml
+
+src/docs/generated-snippets
+src/main/resources/public
