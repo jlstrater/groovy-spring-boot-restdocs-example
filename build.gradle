@@ -22,8 +22,8 @@ buildscript {
 }
 
 jar {
-    baseName = 'spring-boot-sample-actuator'
-    version =  '1.0.0'
+    baseName = 'spring-restdocs-sample'
+    version =  '0.0.1'
 }
 
 repositories {

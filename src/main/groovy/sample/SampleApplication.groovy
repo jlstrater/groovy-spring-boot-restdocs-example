@@ -18,17 +18,11 @@ package sample
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @SpringBootApplication
 @RestController
 class SampleApplication {
-
-	@RequestMapping("/")
-	def helloWorld() {
-		[message: "Hello World"]
-	}
 
 	static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleApplication.class, args)
