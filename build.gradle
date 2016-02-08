@@ -2,6 +2,7 @@ apply plugin: "groovy"
 apply plugin: "spring-boot"
 apply plugin: "application"
 apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'codenarc'
 
 sourceCompatibility = "1.6"
 targetCompatibility = "1.8"
@@ -70,3 +71,12 @@ build {
     dependsOn asciidoctor
 }
 
+codenarcMain {
+    ignoreFailures false
+    configFile file('gradle/codenarc/codenarc.groovy')
+}
+
+codenarcTest {
+    ignoreFailures true
+    configFile file('gradle/codenarc/codenarcTest.groovy')
+}

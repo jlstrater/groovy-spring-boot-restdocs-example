@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package sample
 
 import groovy.transform.CompileStatic
@@ -27,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 class SampleApplication extends WebMvcConfigurerAdapter {
 
 	static void main(String[] args) throws Exception {
-		SpringApplication.run(SampleApplication.class, args)
+		SpringApplication.run(SampleApplication, args)
 	}
 
 	@Override
