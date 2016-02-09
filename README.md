@@ -2,11 +2,17 @@
 
 This project is an example of a groovy spring boot app with Spring RESTdocs added to the spock tests for the talk `Test-Driven Approaches to Documenting RESTful APIs` as presented by Jennifer Strater.
 
+The published docs from the example are available [here](http://jlstrater.github.io/groovy-spring-boot-restdocs-example/).
+
+### Upcoming Presentations
+
 You can see this talk at any of the following events:
 
-Groovy Users of Minnesota - Feb 9, 2016
-
-Twin Cities Code Camp - April 16, 2016
+| Venue         | Date          | City  |
+| ------------- |:-------------:|-----|
+|Groovy Users of Minnesota | Feb 9, 2016 | Minneapolis, MN, USA
+| Object Partners | March ? 2016 | Minneapolis, MN, USA
+| Twin Cities Code Camp | April 16, 2016 | Minneapolis, MN, USA
 
 The accompanying slides are available at: TBA
 
