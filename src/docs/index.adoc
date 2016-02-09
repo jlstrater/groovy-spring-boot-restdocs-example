@@ -92,3 +92,5 @@ include::{snippets}/error-example/http-response.adoc[]
 
 [[resources]]
 = Resources
+
+include::resources/example.adoc[]

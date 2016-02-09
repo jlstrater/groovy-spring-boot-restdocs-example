@@ -1,15 +1,11 @@
-apply plugin: "groovy"
-apply plugin: "spring-boot"
-apply plugin: "application"
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+apply plugin: 'application'
 apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'codenarc'
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.8"
-
 version = "${version}"
 group = "${group}"
-mainClassName = "sample.SampleApplication"
 
 buildscript {
     ext {
@@ -36,17 +32,24 @@ repositories {
 }
 
 dependencies {
-    compile "org.codehaus.groovy:groovy"
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.springframework.boot:spring-boot-starter-actuator"
-    testCompile "org.springframework.boot:spring-boot-starter-test"
+    compile 'org.codehaus.groovy:groovy'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testCompile 'com.jayway.jsonpath:json-path-assert:0.8.1'
+    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:${springRestDocsVersion}"
+}
+
+ext {
+    snippetsDir = file('src/docs/generated-snippets')
 }
 
 asciidoctor {
     dependsOn test
     sourceDir = file('src/docs')
     outputDir "$projectDir/src/main/resources/public"
-//    inputs.dir snippetsDir
+    inputs.dir snippetsDir
     backends 'html5'
     attributes 'source-highlighter' : 'prettify',
             'imagesdir':'images',
@@ -55,12 +58,14 @@ asciidoctor {
             'setanchors':'true',
             'idprefix':'',
             'idseparator':'-',
-            'docinfo1':'true' //,    'snippets': snippetsDir,
+            'docinfo1':'true',
+            'snippets': snippetsDir
 }
 
 
 task cleanTempDir(type: Delete) {
-    delete fileTree(dir: "src/main/resources/public")
+    delete fileTree(dir: 'src/main/resources/public')
+    delete fileTree(dir: 'src/docs/generated-snippets')
 }
 
 clean {
@@ -79,4 +84,10 @@ codenarcMain {
 codenarcTest {
     ignoreFailures true
     configFile file('gradle/codenarc/codenarcTest.groovy')
+}
+
+task publish(type: GradleBuild) {
+    dependsOn asciidoctor
+    buildFile = file('publish.gradle')
+    tasks = ['publishGhPages']
 }

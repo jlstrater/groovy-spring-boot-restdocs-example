@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.ajoberstar:gradle-git:1.1.0'
+    }
+}
+
+apply plugin: 'org.ajoberstar.github-pages'
+
+githubPages {
+    repoUri = 'git@github.com:jlstrater/groovy-spring-boot-restdocs-example.git'
+    pages {
+        from(file('build/docs'))
+    }
+}
