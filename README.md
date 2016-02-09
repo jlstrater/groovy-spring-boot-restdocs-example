@@ -14,7 +14,7 @@ You can see this talk at any of the following events:
 | Object Partners | March ? 2016 | Minneapolis, MN, USA
 | Twin Cities Code Camp | April 16, 2016 | Minneapolis, MN, USA
 
-The accompanying slides are available at: TBA
+The accompanying slides are available [here](https://speakerdeck.com/jlstrater/test-driven-approaches-to-documenting-restful-apis)
 
 -----
 
