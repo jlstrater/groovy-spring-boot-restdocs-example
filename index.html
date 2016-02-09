@@ -456,7 +456,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#hello-list-example">List of Greetings</a>
 <ul class="sectlevel3">
 <li><a href="#example-request-3">Example request</a></li>
-<li><a href="#or">or</a></li>
 <li><a href="#example-response-3">Example response</a></li>
 <li><a href="#response-structure-3">Response structure</a></li>
 </ul>
@@ -629,7 +628,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 171
 
 {
-  "timestamp" : 1455046598024,
+  "timestamp" : 1455048073505,
   "status" : 405,
   "error" : "Method Not Allowed",
   "message" : "Required String parameter 'name' is not present",
@@ -778,9 +777,9 @@ Content-Length: 67
 <pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/hello/list' -i -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>or</p>
 </div>
-<div class="sect3">
-<h4 id="or"><a class="link" href="#or">or</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-http" data-lang="http">GET /hello/list HTTP/1.1
