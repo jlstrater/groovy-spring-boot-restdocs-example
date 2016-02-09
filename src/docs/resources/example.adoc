@@ -46,7 +46,7 @@ include::{snippets}/hello-post-example/response-fields.adoc[]
 
 include::{snippets}/hello-list-example/curl-request.adoc[]
 
-==== or
+or
 
 include::{snippets}/hello-list-example/http-request.adoc[]
 
