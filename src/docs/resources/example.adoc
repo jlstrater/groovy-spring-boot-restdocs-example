@@ -36,3 +36,26 @@ include::{snippets}/hello-post-example/http-response.adoc[]
 ==== Response structure
 
 include::{snippets}/hello-post-example/response-fields.adoc[]
+
+[[hello-list-example]]
+=== List of Greetings
+
+ A `GET` request that returns a list of potential hello greetings
+
+==== Example request
+
+include::{snippets}/hello-list-example/curl-request.adoc[]
+
+==== or
+
+include::{snippets}/hello-list-example/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/hello-list-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/hello-list-example/response-fields.adoc[]
+
+

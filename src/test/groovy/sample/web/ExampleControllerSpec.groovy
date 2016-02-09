@@ -63,4 +63,19 @@ class ExampleControllerSpec extends BaseControllerSpec {
                         .description('message'))
         ))
     }
+
+    void 'test and document get of a list from example endpoint'() {
+        when:
+        ResultActions result = this.mockMvc.perform(get('/hello/list')
+            .contentType(MediaType.APPLICATION_JSON))
+
+        then:
+        result
+            .andExpect(status().isOk())
+            .andDo(document('hello-list-example', preprocessResponse(prettyPrint()),
+            responseFields(
+                fieldWithPath('[].message').type(JsonFieldType.STRING)
+                        .description('message'))
+        ))
+    }
 }
