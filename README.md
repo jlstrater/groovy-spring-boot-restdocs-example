@@ -18,7 +18,7 @@ You can see this talk at any of the following events:
 Slides for previous presentations are available below:
 
 * [9 Feb (GUM) Version](https://speakerdeck.com/jlstrater/test-driven-approaches-to-documenting-restful-apis)
-* [18 March (OPI) Version]()
+* [18 March (OPI) Version](https://speakerdeck.com/jlstrater/a-test-driven-approach-to-documenting-restful-apis-with-spring-rest-docs)
 
 -----
 
