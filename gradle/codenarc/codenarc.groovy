@@ -96,7 +96,7 @@ ruleset {
 
     // rulesets/convention.xml
     ConfusingTernary
-    CouldBeElvis
+    // CouldBeElvis
     HashtableIsObsolete
     IfStatementCouldBeTernary
     InvertedIfElse
@@ -111,7 +111,7 @@ ruleset {
     AbstractClassWithoutAbstractMethod
     AssignmentToStaticFieldFromInstanceMethod
     BooleanMethodReturnsNull
-//    BuilderMethodWithSideEffects
+    // BuilderMethodWithSideEffects
     CloneableWithoutClone
     CloseWithoutCloseable
     CompareToWithoutComparable
@@ -196,10 +196,6 @@ ruleset {
     SpaceBeforeClosingBrace
     SpaceBeforeOpeningBrace
     TrailingWhitespace
-//    rule('file:gradle/codenarc/custom/NewlineBeforeClosingBrace.groovy') {
-//        description = 'There should be no newline before a closing brace.'
-//        priority = 2
-//    }
 
     // rulesets/generic.xml
     IllegalClassMember
@@ -303,7 +299,7 @@ ruleset {
     }
     ClassNameSameAsFilename
     ConfusingMethodName
-    FactoryMethodName
+    // FactoryMethodName
     FieldName {
         regex = '^_?[a-z][a-zA-Z0-9]*$'
         finalRegex = '^_?[a-z][a-zA-Z0-9]*$'

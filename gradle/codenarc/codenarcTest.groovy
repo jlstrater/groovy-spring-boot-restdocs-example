@@ -96,7 +96,7 @@ ruleset {
 
     // rulesets/convention.xml
     ConfusingTernary
-    CouldBeElvis
+    // CouldBeElvis
     HashtableIsObsolete
     IfStatementCouldBeTernary
     InvertedIfElse
@@ -174,11 +174,11 @@ ruleset {
     BracesForIfElse
     BracesForMethod
     BracesForTryCatchFinally
-//    ClassJavadoc
+    // ClassJavadoc
     ClosureStatementOnOpeningLineOfMultipleLineClosure
     ConsecutiveBlankLines
     FileEndsWithoutNewline
-    LineLength
+    // LineLength
     MissingBlankLineAfterImports
     MissingBlankLineAfterPackage
     SpaceAfterCatch
@@ -196,9 +196,11 @@ ruleset {
     SpaceBeforeClosingBrace
     SpaceBeforeOpeningBrace
     TrailingWhitespace
-//    rule('file:gradle/codenarc/custom/NewlineBeforeClosingBrace.groovy') {
-//        description = 'There should be no newline before a closing brace.'
-//    }
+
+//   example custom rule
+//   rule('file:gradle/codenarc/custom/NewlineBeforeClosingBrace.groovy') {
+//      description = 'There should be no newline before a closing brace.'
+//   }
 
     // rulesets/generic.xml
     IllegalClassMember
@@ -385,7 +387,7 @@ ruleset {
     UnnecessaryPackageReference
     UnnecessaryParenthesesForMethodCallWithClosure
     UnnecessaryPublicModifier
-    UnnecessaryReturnKeyword
+    //UnnecessaryReturnKeyword
     UnnecessarySelfAssignment
     UnnecessarySemicolon
     UnnecessaryStringInstantiation
