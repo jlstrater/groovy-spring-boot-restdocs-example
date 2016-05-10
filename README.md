@@ -11,10 +11,14 @@ You can see this talk at any of the following events:
 | Venue         | Date          | City  |
 | ------------- |:-------------:|-----|
 |Groovy Users of Minnesota | Feb 9, 2016 | Minneapolis, MN, USA
-| Object Partners | March ? 2016 | Minneapolis, MN, USA
+| Object Partners | March 18, 2016 | Minneapolis, MN, USA
 | Twin Cities Code Camp | April 16, 2016 | Minneapolis, MN, USA
+| Gr8Conf EU | June 2-3, 2-16 | Copenhagen, Denmark
 
-The accompanying slides are available [here](https://speakerdeck.com/jlstrater/test-driven-approaches-to-documenting-restful-apis)
+Slides for previous presentations are available below:
+
+* [9 Feb (GUM) Version](https://speakerdeck.com/jlstrater/test-driven-approaches-to-documenting-restful-apis)
+* [18 March (OPI) Version](https://speakerdeck.com/jlstrater/a-test-driven-approach-to-documenting-restful-apis-with-spring-rest-docs)
 
 -----
 
