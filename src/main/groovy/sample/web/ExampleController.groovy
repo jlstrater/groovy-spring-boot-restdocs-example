@@ -15,7 +15,7 @@ import sample.domain.Example
 @Slf4j
 class ExampleController {
 
-    @RequestMapping(method = RequestMethod.GET, produces = 'application/json', consumes = 'application/json')
+    @RequestMapping(method = RequestMethod.GET, produces = 'application/json')
     Example get() {
         new Example(name: 'World')
     }
