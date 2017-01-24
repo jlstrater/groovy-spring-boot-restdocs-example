@@ -1,4 +1,4 @@
-# Groovy Spring Boot RESTdocs Example
+# Groovy Spring Boot RESTdocs Example [![Build Status](https://travis-ci.org/jlstrater/groovy-spring-boot-restdocs-example.svg?branch=master)](https://travis-ci.org/jlstrater/groovy-spring-boot-restdocs-example)
 
 This project is an example of a groovy spring boot app with Spring RESTdocs added to the spock tests for the talk `A Test-Driven Approach to Documenting RESTful APIs with Spring REST Docs` as presented by Jennifer Strater.
 
