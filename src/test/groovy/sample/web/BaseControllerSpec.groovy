@@ -4,7 +4,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import groovy.transform.CompileStatic
 import org.junit.Rule
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.restdocs.RestDocumentation
+import org.springframework.restdocs.JUnitRestDocumentation
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.test.web.servlet.MockMvc
@@ -19,7 +19,7 @@ import sample.SampleApplication
 class BaseControllerSpec extends Specification {
 
     @Rule
-    RestDocumentation restDocumentation = new RestDocumentation('src/docs/generated-snippets')
+    JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation('src/docs/generated-snippets')
 
     protected MockMvc mockMvc
 
