@@ -1,5 +1,5 @@
 apply plugin: 'groovy'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'codenarc'
@@ -37,7 +37,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testCompile "org.spockframework:spock-spring:${spockVersion}"
+    testCompile "org.spockframework:spock-core:${spockVersion}"
     testCompile 'com.jayway.jsonpath:json-path-assert:0.8.1'
     testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:${springRestDocsVersion}"
 }

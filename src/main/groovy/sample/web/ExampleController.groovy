@@ -16,25 +16,18 @@ import sample.domain.Example
 class ExampleController {
 
     @RequestMapping(method = RequestMethod.GET, produces = 'application/json')
-    Example get() {
-        new Example(name: 'World')
+    List<Example> list() {
+        [new Example(message: 'Hello'), new Example(message: 'Hi'), new Example(message: 'Hola'),
+         new Example(message: 'Olá')]
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = 'application/json', consumes = 'application/json')
+    Example get(@RequestParam String name) {
+        new Example(name: name)
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = 'application/json', consumes = 'application/json')
     Example post(@RequestBody Example example) {
         example
-    }
-
-    @RequestMapping(path='/error', method = RequestMethod.GET, produces = 'application/json',
-            consumes = 'application/json')
-    Example get(@RequestParam String name) {
-        new Example(name: name)
-    }
-
-    @RequestMapping(path='/list', method = RequestMethod.GET, produces = 'application/json',
-            consumes = 'application/json')
-    List<Example> list() {
-        [new Example(message: 'Hello'), new Example(message: 'Hi'), new Example(message: 'Hola'),
-         new Example(message: 'Olá')]
     }
 }

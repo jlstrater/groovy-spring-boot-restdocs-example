@@ -1,7 +1,6 @@
 package sample.web
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
@@ -15,20 +14,14 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.MediaType
 import org.springframework.restdocs.payload.JsonFieldType
 import org.springframework.test.web.servlet.ResultActions
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import sample.domain.Example
 
 class ExampleControllerSpec extends BaseControllerSpec {
 
-    void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new ExampleController())
-                .apply(documentationConfiguration(this.restDocumentation))
-                .build()
-    }
-
     void 'test and document get on example endpoint'() {
         when:
         ResultActions result = this.mockMvc.perform(get('/hello')
+                .param('name', 'World')
                 .contentType(MediaType.APPLICATION_JSON))
 
         then:
@@ -66,8 +59,8 @@ class ExampleControllerSpec extends BaseControllerSpec {
 
     void 'test and document get of a list from example endpoint'() {
         when:
-        ResultActions result = this.mockMvc.perform(get('/hello/list')
-            .contentType(MediaType.APPLICATION_JSON))
+        ResultActions result = this.mockMvc.perform(get('/hello')
+            .contentType(MediaType.TEXT_PLAIN))
 
         then:
         result

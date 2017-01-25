@@ -11,10 +11,10 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
 import spock.lang.Specification
-import sample.SampleApplication
+import sample.ExampleApplication
 
 @CompileStatic
-@ContextConfiguration(classes = [SampleApplication])
+@ContextConfiguration(classes = [ExampleApplication])
 @WebAppConfiguration
 class BaseControllerSpec extends Specification {
 
