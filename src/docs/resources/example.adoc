@@ -6,7 +6,7 @@ The hello resource returns hello world for various inputs
 [[hello-get-example]]
 === Default Example
 
-A `GET` request with no parameters with return 'Hello, World!'
+A `GET` request with a name parameter of 'World' will return 'Hello, World!'
 
 ==== Example request
 
@@ -40,7 +40,7 @@ include::{snippets}/hello-post-example/response-fields.adoc[]
 [[hello-list-example]]
 === List of Greetings
 
- A `GET` request that returns a list of potential hello greetings
+ A `GET` request with no parameters will return a list of potential hello greetings
 
 ==== Example request
 
