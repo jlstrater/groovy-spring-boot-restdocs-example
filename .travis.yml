@@ -1,11 +1,5 @@
 language: groovy
-script: ./gradlew check assemble
-deploy:
-  provider: script
-  script: ./gradlew publish
-  skip_cleanup: true
-  on:
-    brance: master
+script: ./gradlew check
 branches:
   only:
   - master
