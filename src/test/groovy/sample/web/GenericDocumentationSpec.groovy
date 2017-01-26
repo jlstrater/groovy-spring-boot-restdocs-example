@@ -20,7 +20,7 @@ class GenericDocumentationSpec extends BaseControllerSpec {
         when:
         ResultActions result = this.mockMvc.perform(get('/error')
             .requestAttr(RequestDispatcher.ERROR_STATUS_CODE, 405)
-            .requestAttr(RequestDispatcher.ERROR_REQUEST_URI, '/hello')
+            .requestAttr(RequestDispatcher.ERROR_REQUEST_URI, '/greetings')
             .requestAttr(RequestDispatcher.ERROR_MESSAGE, "Request method 'DELETE' not supported"))
 
         then:

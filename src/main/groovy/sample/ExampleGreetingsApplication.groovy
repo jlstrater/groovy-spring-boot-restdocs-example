@@ -16,10 +16,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Slf4j
 @ComponentScan(['sample.web'])
 @SpringBootApplication
-class ExampleApplication extends WebMvcConfigurerAdapter {
+class ExampleGreetingsApplication extends WebMvcConfigurerAdapter {
 
 	static void main(String[] args) throws Exception {
-		SpringApplication.run(ExampleApplication, args)
+		SpringApplication.run(ExampleGreetingsApplication, args)
 	}
 
 	@Override
