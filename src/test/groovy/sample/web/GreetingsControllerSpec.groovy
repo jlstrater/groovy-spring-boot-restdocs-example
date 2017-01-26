@@ -22,9 +22,9 @@ import sample.domain.Greeting
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders
 import org.springframework.restdocs.payload.FieldDescriptor
 
-class ExampleControllerSpec extends BaseControllerSpec {
+class GreetingsControllerSpec extends BaseControllerSpec {
 
-    void 'test and document get of a list from example endpoint'() {
+    void 'test and document get of a list of greetings'() {
         when:
         ResultActions result = this.mockMvc.perform(get('/greetings')
                 .contentType(MediaType.TEXT_PLAIN))
@@ -37,7 +37,7 @@ class ExampleControllerSpec extends BaseControllerSpec {
         ))
     }
 
-    void 'test and document get on example endpoint by message'() {
+    void 'test and document getting the greeting matching the message'() {
         when:
         ResultActions result = this.mockMvc.perform(get('/greetings')
                 .param('message', 'Hello')
@@ -51,7 +51,7 @@ class ExampleControllerSpec extends BaseControllerSpec {
             responseFields(greeting)))
     }
 
-    void 'test and document get on example endpoing by id'() {
+    void 'test and document getting a greeting by id'() {
         when:
         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.get('/greetings/{id}', 1))
 
@@ -66,7 +66,7 @@ class ExampleControllerSpec extends BaseControllerSpec {
         ))
     }
 
-    void 'test and document post with example endpoint and custom name'() {
+    void 'test and document creating a greeting with a custom name'() {
         when:
         ResultActions result = this.mockMvc.perform(post('/greetings')
             .content(new ObjectMapper().writeValueAsString(new Greeting(message: 'Hej JFokus!')))

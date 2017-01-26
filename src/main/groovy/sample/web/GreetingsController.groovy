@@ -39,9 +39,11 @@ class GreetingsController {
         return ResponseEntity.ok(greeting)
     }
 
+    @SuppressWarnings('SpaceAroundOperator')
     @RequestMapping(method = RequestMethod.POST, produces = 'application/json', consumes = 'application/json')
     ResponseEntity<?> post(@RequestBody Greeting example) {
-        Greeting existingGreeting = greetings.find { it.id == example.id }
+        Greeting existingGreeting = greetings.find { it.id == example.id } ?:
+                greetings.find { it.message == example.message }
         if (!existingGreeting) {
             greetings << example
             if (!example.id) {
