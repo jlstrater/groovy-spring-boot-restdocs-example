@@ -85,7 +85,7 @@ that describes the problem. The error object has the following structure:
 
 include::{snippets}/error-example/response-fields.adoc[]
 
-For example, a request that attempts to delete on the hello endpoint will produce a
+For example, a request that attempts to delete on the greetings endpoint will produce a
 `405 Method Not Allowed` response:
 
 include::{snippets}/error-example/http-response.adoc[]
@@ -93,4 +93,4 @@ include::{snippets}/error-example/http-response.adoc[]
 [[resources]]
 = Resources
 
-include::resources/example.adoc[]
+include::resources/greetings.adoc[]
