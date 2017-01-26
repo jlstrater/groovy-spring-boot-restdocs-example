@@ -426,25 +426,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 405 Method Not Allowed
-Content-Type: application/json;charset=UTF-8
-Content-Length: 165
-
-{
-  "timestamp" : 1485389640018,
-  "status" : 405,
-  "error" : "Method Not Allowed",
-  "message" : "Request method 'DELETE' not supported",
-  "path" : "/greetings"
-}</code></pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. /greetings/{id}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The greeting&#8217;s id</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-26 01:14:00 +01:00
+Last updated 2017-01-26 00:43:19 +01:00
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
