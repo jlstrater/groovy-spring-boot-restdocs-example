@@ -78,17 +78,12 @@ build {
     dependsOn asciidoctor
 }
 
-codenarc {
-    toolVersion '0.25.2'
-}
-
 codenarcMain {
     ignoreFailures false
     configFile file('gradle/codenarc/codenarc.groovy')
 }
 
 codenarcTest {
-    ignoreFailures true
     configFile file('gradle/codenarc/codenarcTest.groovy')
 }
 

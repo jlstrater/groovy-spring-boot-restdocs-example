@@ -31,13 +31,13 @@ Slides for previous presentations are available below:
 You can build and run this sample using Gradle:
 
 ```
-$ gradle bootRun
+$ gradle build bootRun
 ```
 
 Or the Gradle Wrapper:
 
 ```
-$ ./gradlew bootRun
+$ ./gradlew build bootRun
 ```
 
 Then access the app via a browser (or curl) on http://localhost:8080 to see the docs.

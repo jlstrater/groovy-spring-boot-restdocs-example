@@ -18,13 +18,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 class ExampleGreetingsApplication extends WebMvcConfigurerAdapter {
 
-	static void main(String[] args) throws Exception {
-		SpringApplication.run(ExampleGreetingsApplication, args)
-	}
+    static void main(String[] args) throws Exception {
+        SpringApplication.run(ExampleGreetingsApplication, args)
+    }
 
-	@Override
-	void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController('/').setViewName('forward:/html5/index.html')
-	}
+    @Override
+    void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController('/').setViewName('forward:/html5/index.html')
+    }
 
 }
