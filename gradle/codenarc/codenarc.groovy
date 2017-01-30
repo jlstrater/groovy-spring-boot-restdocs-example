@@ -96,14 +96,16 @@ ruleset {
 
     // rulesets/convention.xml
     ConfusingTernary
-    // CouldBeElvis
+    CouldBeElvis
     HashtableIsObsolete
     IfStatementCouldBeTernary
     InvertedIfElse
     LongLiteralWithLowerCaseL
     NoDef
+    NoTabCharacter
     ParameterReassignment
     TernaryCouldBeElvis
+    TrailingComma
     VectorIsObsolete
 
     // rulesets/design.xml
@@ -111,7 +113,7 @@ ruleset {
     AbstractClassWithoutAbstractMethod
     AssignmentToStaticFieldFromInstanceMethod
     BooleanMethodReturnsNull
-    // BuilderMethodWithSideEffects
+    BuilderMethodWithSideEffects
     CloneableWithoutClone
     CloseWithoutCloseable
     CompareToWithoutComparable
@@ -131,12 +133,10 @@ ruleset {
     ToStringReturnsNull
 
     // rulesets/dry.xml
-    /*
     DuplicateListLiteral
     DuplicateMapLiteral
     DuplicateNumberLiteral
     DuplicateStringLiteral
-    */
 
     // rulesets/enhanced.xml
     /*
@@ -203,6 +203,7 @@ ruleset {
     IllegalPackageReference
     IllegalRegex
     IllegalString
+    IllegalSubclass
     RequiredRegex
     RequiredString
     StatelessClass
@@ -246,9 +247,9 @@ ruleset {
     ImportFromSamePackage
     ImportFromSunPackages
     MisorderedStaticImports
+    NoWildcardImports
     UnnecessaryGroovyImport
     UnusedImport
-    NoWildcardImports
 
     // rulesets/jdbc.xml
     DirectConnectionManagement
@@ -257,30 +258,30 @@ ruleset {
     JdbcStatementReference
 
     // rulesets/junit.xml
-//    ChainedTest
-//    CoupledTestCase
-//    JUnitAssertAlwaysFails
-//    JUnitAssertAlwaysSucceeds
-//    JUnitFailWithoutMessage
-//    JUnitLostTest
-//    JUnitPublicField
-//    JUnitPublicNonTestMethod
-//    JUnitPublicProperty
-//    JUnitSetUpCallsSuper
-//    JUnitStyleAssertions
-//    JUnitTearDownCallsSuper
-//    JUnitTestMethodWithoutAssert
-//    JUnitUnnecessarySetUp
-//    JUnitUnnecessaryTearDown
-//    JUnitUnnecessaryThrowsException
-//    SpockIgnoreRestUsed
-//    UnnecessaryFail
-//    UseAssertEqualsInsteadOfAssertTrue
-//    UseAssertFalseInsteadOfNegation
-//    UseAssertNullInsteadOfAssertEquals
-//    UseAssertSameInsteadOfAssertTrue
-//    UseAssertTrueInsteadOfAssertEquals
-//    UseAssertTrueInsteadOfNegation
+    ChainedTest
+    CoupledTestCase
+    JUnitAssertAlwaysFails
+    JUnitAssertAlwaysSucceeds
+    JUnitFailWithoutMessage
+    JUnitLostTest
+    JUnitPublicField
+    JUnitPublicNonTestMethod
+    JUnitPublicProperty
+    JUnitSetUpCallsSuper
+    JUnitStyleAssertions
+    JUnitTearDownCallsSuper
+    JUnitTestMethodWithoutAssert
+    JUnitUnnecessarySetUp
+    JUnitUnnecessaryTearDown
+    JUnitUnnecessaryThrowsException
+    SpockIgnoreRestUsed
+    UnnecessaryFail
+    UseAssertEqualsInsteadOfAssertTrue
+    UseAssertFalseInsteadOfNegation
+    UseAssertNullInsteadOfAssertEquals
+    UseAssertSameInsteadOfAssertTrue
+    UseAssertTrueInsteadOfAssertEquals
+    UseAssertTrueInsteadOfNegation
 
     // rulesets/logging.xml
     LoggerForDifferentClass
@@ -294,33 +295,26 @@ ruleset {
 
     // rulesets/naming.xml
     AbstractClassName
-    ClassName {
-        regex = '^[A-Z][\\$a-zA-Z0-9]*$'
-    }
+    ClassName
     ClassNameSameAsFilename
+    ClassNameSameAsSuperclass
     ConfusingMethodName
-    // FactoryMethodName
-    FieldName {
-        regex = '^_?[a-z][a-zA-Z0-9]*$'
-        finalRegex = '^_?[a-z][a-zA-Z0-9]*$'
-        staticFinalRegex = '^logger$|^[A-Z][A-Z_0-9]*$|^serialVersionUID$'
-    }
+    FactoryMethodName
+    FieldName
     InterfaceName
-    MethodName {
-        regex = '^[a-z][\\$_a-zA-Z0-9]*$|^.*\\s.*$'
-    }
+    InterfaceNameSameAsSuperInterface
+    MethodName
     ObjectOverrideMisspelledMethodName
     PackageName
+    PackageNameMatchesFilePath
     ParameterName
     PropertyName
-    VariableName {
-        finalRegex = '^[a-z][a-zA-Z0-9]*$'
-    }
+    VariableName
 
     // rulesets/security.xml
     FileCreateTempFile
     InsecureRandom
-//    JavaIoPackageAccess
+    JavaIoPackageAccess
     NonFinalPublicField
     NonFinalSubclassOfSensitiveInterface
     ObjectFinalize
@@ -335,6 +329,7 @@ ruleset {
     SerializableClassMustDefineSerialVersionUID
 
     // rulesets/size.xml
+//    AbcComplexity   // DEPRECATED: Use the AbcMetric rule instead. Requires the GMetrics jar
     AbcMetric   // Requires the GMetrics jar
     ClassSize
 //    CrapMetric   // Requires the GMetrics jar and a Cobertura coverage file
@@ -383,12 +378,13 @@ ruleset {
     UnnecessaryParenthesesForMethodCallWithClosure
     UnnecessaryPublicModifier
 //    UnnecessaryReturnKeyword
+    UnnecessarySafeNavigationOperator
     UnnecessarySelfAssignment
     UnnecessarySemicolon
     UnnecessaryStringInstantiation
     UnnecessarySubstring
     UnnecessaryTernaryExpression
-//    UnnecessaryToString
+    UnnecessaryToString
     UnnecessaryTransientModifier
 
     // rulesets/unused.xml
