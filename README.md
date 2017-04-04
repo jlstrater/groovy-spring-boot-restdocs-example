@@ -17,6 +17,7 @@ You can see this talk at any of the following events:
 | Gr8Conf US | July 28, 2016 | Minneapolis, MN, USA
 | JFokus | Feb 8, 2017 | Stockholm, Sweden
 | Greach | March 31, 2017 | Madrid, Spain
+| Code Europe | April 26, 2017 | Kraków, Pl
 
 Slides for previous presentations are available below:
 
@@ -27,6 +28,8 @@ Slides for previous presentations are available below:
 * [July 2016 (Gr8Conf US)](https://speakerdeck.com/jlstrater/a-test-driven-approach-to-documenting-restful-apis-with-spring-rest-docs-gr8conf-us)
 * [Feb 2017 (JFokus)](https://speakerdeck.com/jlstrater/test-driven-docs-jfokus-2017)
 * [March 2017 (Greach)](https://speakerdeck.com/jlstrater/test-driven-docs-greach-2017)
+* [April 2017 (Code Europe)](https://speakerdeck.com/jlstrater/test-driven-docs-code-europe-2017)
+
 
 -----
 
