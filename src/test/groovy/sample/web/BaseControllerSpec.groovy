@@ -19,7 +19,7 @@ import sample.ExampleGreetingsApplication
 class BaseControllerSpec extends Specification {
 
     @Rule
-    JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation('src/docs/generated-snippets')
+    JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation()
 
     protected MockMvc mockMvc
 
