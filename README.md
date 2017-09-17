@@ -18,6 +18,7 @@ You can see this talk at any of the following events:
 | JFokus | Feb 8, 2017 | Stockholm, Sweden
 | Greach | March 31, 2017 | Madrid, Spain
 | Code Europe | April 26, 2017 | Kraków, Pl
+| API Conference DE | September 20, 2017 | Berlin, DE
 
 Slides for previous presentations are available below:
 
@@ -29,7 +30,7 @@ Slides for previous presentations are available below:
 * [Feb 2017 (JFokus)](https://speakerdeck.com/jlstrater/test-driven-docs-jfokus-2017)
 * [March 2017 (Greach)](https://speakerdeck.com/jlstrater/test-driven-docs-greach-2017)
 * [April 2017 (Code Europe)](https://speakerdeck.com/jlstrater/test-driven-docs-code-europe-2017)
-
+* [September 2017 (ApiConf DE)](https://speakerdeck.com/jlstrater/test-driven-docs-apiconf-de-2017)
 
 -----
 
