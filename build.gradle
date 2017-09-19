@@ -1,3 +1,4 @@
+apply plugin: 'com.gradle.build-scan'
 apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
@@ -9,13 +10,16 @@ group = "${group}"
 
 buildscript {
     repositories {
-        mavenLocal()
         jcenter()
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctorVersion}"
+        classpath "com.gradle:build-scan-plugin:1.9"
     }
 }
 
@@ -92,4 +96,10 @@ task publish(type: GradleBuild) {
     tasks = ['publishGhPages']
 }
 
-ext['spring-restdocs.version'] = '1.2.0.RELEASE'
+ext['spring-restdocs.version'] = '1.2.1.RELEASE'
+
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+    publishAlways()
+}
