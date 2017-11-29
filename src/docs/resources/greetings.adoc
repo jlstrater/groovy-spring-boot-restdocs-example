@@ -75,3 +75,5 @@ include::{snippets}/greetings-post-example/curl-request.adoc[]
 ==== Example response
 
 include::{snippets}/greetings-post-example/http-response.adoc[]
+
+
