@@ -97,6 +97,7 @@ ruleset {
     // rulesets/convention.xml
     ConfusingTernary
     CouldBeElvis
+    CouldBeSwitchStatement
     HashtableIsObsolete
     IfStatementCouldBeTernary
     InvertedIfElse
@@ -381,6 +382,7 @@ ruleset {
     UnnecessarySafeNavigationOperator
     UnnecessarySelfAssignment
     UnnecessarySemicolon
+    UnnecessarySetter
     UnnecessaryStringInstantiation
     UnnecessarySubstring
     UnnecessaryTernaryExpression

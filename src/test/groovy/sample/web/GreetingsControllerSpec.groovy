@@ -69,7 +69,7 @@ class GreetingsControllerSpec extends BaseControllerSpec {
     void 'test and document creating a greeting with a custom name'() {
         when:
         ResultActions result = this.mockMvc.perform(post('/greetings')
-            .content(new ObjectMapper().writeValueAsString(new Greeting(message: 'Hallo SpringOne Platform!')))
+            .content(new ObjectMapper().writeValueAsString(new Greeting(message: 'Hello SpringOne Platform!')))
             .contentType(MediaType.APPLICATION_JSON))
         then:
         result
