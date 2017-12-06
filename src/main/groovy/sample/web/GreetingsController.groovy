@@ -1,61 +1,38 @@
 package sample.web
 
-import groovy.transform.CompileStatic
-import org.springframework.http.ResponseEntity
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder
-import sample.domain.Greeting
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
+import sample.model.Greeting
+import sample.repository.GreetingRepository
 
-@CompileStatic
+import javax.validation.Valid
+
 @RestController
 @RequestMapping('/greetings')
 class GreetingsController {
-    Integer counter = 7
-    List<Greeting> greetings = [new Greeting(id: 1, message: 'Hello'),
-                                new Greeting(id: 2, message: 'Hi'),
-                                new Greeting(id: 3, message: 'Hola'),
-                                new Greeting(id: 4, message: 'Olá'),
-                                new Greeting(id: 5, message: 'Hej'),
-                                new Greeting(id: 6, message: 'Hallo'),]
 
-    @RequestMapping(method = RequestMethod.GET, produces =  ['application/json', 'application/xml'])
-    ResponseEntity<?> list(@RequestParam(required = false) String message) {
-        if (message) {
-            return ResponseEntity.ok(greetings.find { it.message == message })
-        }
-        return ResponseEntity.ok(greetings)
+    @Autowired
+    GreetingRepository greetingsRepository
+
+    @PostMapping()
+    Mono<Greeting> createGreeting(@Valid @RequestBody Greeting greeting) {
+        return greetingsRepository.save(greeting)
     }
 
-    @RequestMapping(path= '/{id}', method = RequestMethod.GET, produces = 'application/json')
-    ResponseEntity<?> getById(@PathVariable String id) {
-        Greeting greeting = greetings.find { it.id == id.toInteger() }
-        if (!greeting) {
-            return ResponseEntity.noContent().build()
-        }
-        return ResponseEntity.ok(greeting)
+    @GetMapping()
+    Flux<Greeting> listAllGreetings() {
+        return greetingsRepository.findAll()
     }
 
-    @SuppressWarnings('SpaceAroundOperator') // false positive when elvis is followed by a newline
-    @RequestMapping(method = RequestMethod.POST, produces = 'application/json', consumes = 'application/json')
-    ResponseEntity<?> post(@RequestBody Greeting example) {
-        Greeting existingGreeting = greetings.find { it.id == example.id } ?:
-                greetings.find { it.message == example.message }
-        if (!existingGreeting) {
-            greetings << example
-            if (!example.id) {
-                example.id = counter
-                counter++
-            }
-            URI location = ServletUriComponentsBuilder
-                    .fromCurrentRequest().path('/{id}')
-                    .buildAndExpand(example.id).toUri()
-            return ResponseEntity.created(location).build()
-        }
-        return ResponseEntity.noContent().build()
+    @GetMapping('/{id}')
+    Mono<Greeting> getGreetingById(@PathVariable(value = 'id') String greetingId) {
+        greetingsRepository.findById(greetingId)
     }
 }

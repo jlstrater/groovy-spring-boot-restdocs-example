@@ -24,24 +24,6 @@ include::{snippets}/greetings-list-example/http-response.adoc[]
 
 include::{snippets}/greetings-list-example/response-fields.adoc[]
 
-
-[[greetings-get-example]]
-=== Get by Message
-
-A `GET` request with a message such as 'Hello' will return the greeting with that message if it exists in the list of greetings.
-
-==== Example request
-
-include::{snippets}/greetings-get-example/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/greetings-get-example/http-response.adoc[]
-
-==== Response structure
-
-include::{snippets}/greetings-get-example/response-fields.adoc[]
-
 [[greetings-get-example]]
 === Get by ID
 

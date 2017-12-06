@@ -4,17 +4,18 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'codenarc'
+apply plugin: 'io.spring.dependency-management'
 
 version = "${version}"
 group = "${group}"
+mainClassName = 'sample.ExampleGreetingsApplication'
 
 buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2"
-        }
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url 'http://repo.spring.io/milestone' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -34,17 +35,18 @@ jar {
 
 repositories {
     mavenCentral()
+    maven { url 'http://repo.spring.io/milestone' }
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy'
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:$springBootVersion"
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'io.projectreactor:reactor-test'
     testCompile "org.spockframework:spock-spring:${spockVersion}"
     testCompile "org.spockframework:spock-core:${spockVersion}"
-    testCompile 'com.jayway.jsonpath:json-path-assert:0.8.1'
-    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:${springRestDocsVersion}"
+    testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
 }
 
 ext {
@@ -100,10 +102,10 @@ task publish(type: GradleBuild) {
     tasks = ['publishGhPages']
 }
 
-ext['spring-restdocs.version'] = '2.0.0.RELEASE'
+ext['spring-restdocs.version'] = springRestDocsVersion
 
-buildScan {
-    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
-    licenseAgree = 'yes'
-    publishAlways()
-}
+//buildScan {
+//    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+//    licenseAgree = 'yes'
+//    publishAlways()
+//}
