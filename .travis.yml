@@ -3,3 +3,5 @@ script: ./gradlew check
 branches:
   only:
   - master
+services:
+  - mongodb
