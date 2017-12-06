@@ -47,36 +47,25 @@ dependencies {
     testCompile "org.spockframework:spock-spring:${spockVersion}"
     testCompile "org.spockframework:spock-core:${spockVersion}"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
+    asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
 }
 
 ext {
-    snippetsDir = file('build/generated-snippets')
+    snippetsDir = file('generated-snippets')
+}
+
+test {
+    outputs.dir "$projectDir/src/main/resources/public"
 }
 
 asciidoctor {
     dependsOn test
     sourceDir = file('src/docs')
     outputDir "$projectDir/src/main/resources/public"
-    inputs.dir snippetsDir
-    backends 'html5'
-    attributes 'source-highlighter' : 'prettify',
-            'imagesdir':'images',
-            'toc':'left',
-            'icons': 'font',
-            'setanchors':'true',
-            'idprefix':'',
-            'idseparator':'-',
-            'docinfo1':'true',
-            'snippets': snippetsDir
-}
-
-
-task cleanTempDir(type: Delete) {
-    delete fileTree(dir: 'src/main/resources/public')
 }
 
 clean {
-    dependsOn cleanTempDir
+    delete fileTree(dir: 'src/main/resources/public')
 }
 
 build {

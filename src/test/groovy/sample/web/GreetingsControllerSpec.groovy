@@ -26,7 +26,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
 
     void 'test and document creating a greeting with a custom name'() {
         when:
-        def result = this.webTestClient.post().uri('/').contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)
+        def result = this.webTestClient.post().uri('/')
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject('{"message": "Hello SpringOne Platform!"}'))
                 .exchange()
                 .expectStatus().isOk()
@@ -34,8 +36,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .jsonPath('$.id').isNotEmpty()
                 .jsonPath('$.message').isEqualTo('Hello SpringOne Platform!')
                 .consumeWith(document('greetings-post-example',
-                preprocessRequest(prettyPrint()),
-                requestFields(fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"))))
+                    preprocessRequest(prettyPrint()),
+                    requestFields(
+                        fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"))))
         JsonSlurper slurper = new JsonSlurper()
         greetingId = slurper.parseText(new String(result.returnResult().body)).id
 
@@ -49,8 +52,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .consumeWith(document('greetings-list-example', preprocessResponse(prettyPrint()),
-                responseFields(greetingList)))
+                .consumeWith(document('greetings-list-example',
+                   preprocessResponse(prettyPrint()),
+                   responseFields(greetingList)))
     }
 
     void 'test and document getting a greeting by id'() {
