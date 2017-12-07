@@ -1,6 +1,7 @@
 package sample.web
 
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.documentationConfiguration
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 
 import groovy.transform.CompileStatic
 import org.junit.Rule
@@ -27,7 +28,10 @@ class BaseControllerSpec extends Specification {
         this.webTestClient = WebTestClient.bindToApplicationContext(this.context)
                 .configureClient()
                 .baseUrl('/greetings')
-                .filter(documentationConfiguration(restDocumentation))
+                .filter(documentationConfiguration(restDocumentation)
+                .operationPreprocessors()
+                    .withRequestDefaults(prettyPrint())
+                    .withResponseDefaults(prettyPrint()))
                 .build()
     }
 }

@@ -1,7 +1,5 @@
 package sample.web
 
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document
@@ -25,7 +23,7 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
                 .jsonPath('$.message').isEqualTo("Response status 405 with reason \"Request method 'DELETE' not supported\"")
                 .jsonPath('$.status').isEqualTo(405)
                 .jsonPath('$.error').isEqualTo('Method Not Allowed')
-                .consumeWith(document('error-example', preprocessResponse(prettyPrint()),
+                .consumeWith(document('error-example',
                 responseFields([fieldWithPath('timestamp').type(JsonFieldType.STRING)
                                         .description("The request's timestamp"),
                                 fieldWithPath('path').type(JsonFieldType.STRING)

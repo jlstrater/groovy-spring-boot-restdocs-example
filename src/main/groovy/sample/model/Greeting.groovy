@@ -1,8 +1,8 @@
 package sample.model
 
 import groovy.transform.CompileStatic
-import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 
 import javax.validation.constraints.NotBlank
 

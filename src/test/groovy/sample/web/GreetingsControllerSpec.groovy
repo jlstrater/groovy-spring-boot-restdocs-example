@@ -1,8 +1,5 @@
 package sample.web
 
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields
@@ -36,9 +33,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .jsonPath('$.id').isNotEmpty()
                 .jsonPath('$.message').isEqualTo('Hello SpringOne Platform!')
                 .consumeWith(document('greetings-post-example',
-                    preprocessRequest(prettyPrint()),
                     requestFields(
-                        fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"))))
+                        fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"),
+                        fieldWithPath('foo').type(JsonFieldType.STRING).optional().description("The greeting's foo"))))
         JsonSlurper slurper = new JsonSlurper()
         greetingId = slurper.parseText(new String(result.returnResult().body)).id
 
@@ -53,7 +50,6 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .expectStatus().isOk()
                 .expectBody()
                 .consumeWith(document('greetings-list-example',
-                   preprocessResponse(prettyPrint()),
                    responseFields(greetingList)))
     }
 
@@ -64,7 +60,6 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .expectStatus().isOk()
                 .expectBody()
                 .consumeWith(document('greetings-get-by-id-example',
-                preprocessResponse(prettyPrint()),
                 pathParameters(parameterWithName('id').description("The greeting's id")),
                 responseFields(greeting)
         ))

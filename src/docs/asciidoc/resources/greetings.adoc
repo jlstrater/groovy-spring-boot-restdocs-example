@@ -22,6 +22,6 @@ operation::greetings-get-by-id-example[snippets='curl-request,http-request,http-
 
 A `POST` request will create new greetings.
 
-operation::greetings-post-example[snippets='curl-request,http-request,http-response']
+operation::greetings-post-example[snippets='request-fields,curl-request,http-request,http-response']
 
 
