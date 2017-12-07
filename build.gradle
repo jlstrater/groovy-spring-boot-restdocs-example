@@ -39,29 +39,30 @@ repositories {
 }
 
 dependencies {
+    asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
+
     compile 'org.codehaus.groovy:groovy'
     compile "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:$springBootVersion"
+
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'io.projectreactor:reactor-test'
     testCompile "org.spockframework:spock-spring:${spockVersion}"
     testCompile "org.spockframework:spock-core:${spockVersion}"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
-    asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
 }
 
 ext {
-    snippetsDir = file('generated-snippets')
+    snippetsDir = "$buildDir/generated-snippets"
 }
 
 test {
-    outputs.dir "$projectDir/src/main/resources/public"
+    outputs.dir snippetsDir
 }
 
 asciidoctor {
+    inputs.dir snippetsDir
     dependsOn test
-    sourceDir = file('src/docs')
-    outputDir "$projectDir/src/main/resources/public"
 }
 
 clean {

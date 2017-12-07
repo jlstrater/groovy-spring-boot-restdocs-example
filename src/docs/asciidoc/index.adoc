@@ -69,14 +69,6 @@ Trying a POST will return this message.
 
 For more status codes, see the https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html[w3 standard]
 
-////
-[[overview-headers]]
-== Headers
-
-Every response has the following header(s):
-
-include::{snippets}/headers-example/response-headers.adoc[]
-////
 [[overview-errors]]
 == Errors
 
@@ -88,7 +80,7 @@ include::{snippets}/error-example/response-fields.adoc[]
 For example, a request that attempts to delete on the greetings endpoint will produce a
 `405 Method Not Allowed` response:
 
-include::{snippets}/error-example/http-response.adoc[]
+operation::error-example[snippets='curl-request,http-request,http-response']
 
 [[resources]]
 = Resources
