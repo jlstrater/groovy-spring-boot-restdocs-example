@@ -62,6 +62,7 @@ test {
 
 asciidoctor {
     inputs.dir snippetsDir
+    outputDir "$projectDir/src/main/resources/public"
     dependsOn test
 }
 
