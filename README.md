@@ -20,6 +20,7 @@ You can see this talk at any of the following events:
 | Code Europe | April 26, 2017 | Kraków, Pl
 | API Conference DE | September 20, 2017 | Berlin, DE
 | Spring One Platform | December 7, 2017 | San Francisco, CA, USA
+| Warsaw JUG | June 26, 2018 | Warsaw, Poland
 
 Slides for previous presentations are available below:
 
@@ -33,6 +34,7 @@ Slides for previous presentations are available below:
 * [April 2017 (Code Europe)](https://speakerdeck.com/jlstrater/test-driven-docs-code-europe-2017)
 * [September 2017 (ApiConf DE)](https://speakerdeck.com/jlstrater/test-driven-docs-apiconf-de-2017)
 * [December 2017 (SpringOne Platform)](https://speakerdeck.com/jlstrater/test-driven-docs-springone-2017)
+* [June 2018 (Warsaw JUG)](https://speakerdeck.com/jlstrater/test-driven-docs-warsaw-jug-2018)
 
 -----
 
