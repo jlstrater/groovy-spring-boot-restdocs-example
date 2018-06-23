@@ -89,7 +89,7 @@ codenarcTest {
 task publish(type: GradleBuild) {
     dependsOn asciidoctor
     buildFile = file('publish.gradle')
-    tasks = ['publishGhPages']
+    tasks = ['gitPublishPush']
 }
 
 ext['spring-restdocs.version'] = springRestDocsVersion
