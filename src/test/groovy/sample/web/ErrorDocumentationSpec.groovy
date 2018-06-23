@@ -20,7 +20,7 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
                 .expectBody()
                 .jsonPath('$.timestamp').isNotEmpty()
                 .jsonPath('$.path').isNotEmpty()
-                .jsonPath('$.message').isEqualTo("Response status 405 with reason \"Request method 'DELETE' not supported\"")
+                .jsonPath('$.message').isEqualTo("Request method 'DELETE' not supported")
                 .jsonPath('$.status').isEqualTo(405)
                 .jsonPath('$.error').isEqualTo('Method Not Allowed')
                 .consumeWith(document('error-example',
