@@ -50,7 +50,7 @@ Or the Gradle Wrapper:
 $ ./gradlew build bootRun
 ```
 
-Then access the app via a browser (or curl) on http://localhost:8080 to see the docs.
+Then access the app via a browser (or curl) on http://localhost:8080/html5/index.html to see the docs.
 
 ** It is very important to note that the project must be built before trying to run the project. Otherwise, the docs will not show up! **
 
