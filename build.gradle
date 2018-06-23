@@ -24,15 +24,6 @@ buildscript {
     }
 }
 
-jar {
-    baseName = 'spring-restdocs-sample'
-    version =  '0.0.1'
-    dependsOn asciidoctor
-    from ("${asciidoctor.outputDir}/html5") {
-        into 'static/docs'
-    }
-}
-
 repositories {
     mavenCentral()
     maven { url 'http://repo.spring.io/milestone' }
@@ -62,8 +53,15 @@ test {
 
 asciidoctor {
     inputs.dir snippetsDir
-    outputDir "$projectDir/src/main/resources/public"
     dependsOn test
+
+    doLast {
+        copy {
+            from "$buildDir/asciidoc"
+            into "$buildDir/resources/main/public"
+            include "**/*.html"
+        }
+    }
 }
 
 clean {
