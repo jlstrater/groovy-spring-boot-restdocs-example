@@ -5,3 +5,7 @@ branches:
   - master
 services:
   - mongodb
+jdk:
+  - openjdk8
+  - openjdk9
+  - openjdk10

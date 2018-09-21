@@ -1,46 +1,45 @@
-apply plugin: 'com.gradle.build-scan'
-apply plugin: 'groovy'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'application'
-apply plugin: 'org.asciidoctor.convert'
-apply plugin: 'codenarc'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: "application"
+apply plugin: "codenarc"
+apply plugin: "groovy"
+apply plugin: "com.gradle.build-scan"
+apply plugin: "io.spring.dependency-management"
+apply plugin: "org.asciidoctor.convert"
+apply plugin: "org.springframework.boot"
 
-version = "${version}"
-group = "${group}"
-mainClassName = 'sample.ExampleGreetingsApplication'
+mainClassName = "sample.ExampleGreetingsApplication"
 
 buildscript {
     repositories {
         jcenter()
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2" }
-        maven { url 'http://repo.spring.io/milestone' }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctorVersion}"
         classpath "com.gradle:build-scan-plugin:1.9"
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:$asciidoctorVersion"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
     }
-}
-
-repositories {
-    mavenCentral()
-    maven { url 'http://repo.spring.io/milestone' }
 }
 
 dependencies {
     asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
 
-    compile 'org.codehaus.groovy:groovy'
-    compile "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
+    compile "org.codehaus.groovy:groovy-all:2.5.2"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
 
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'io.projectreactor:reactor-test'
-    testCompile "org.spockframework:spock-spring:${spockVersion}"
+    compile 'javax.xml.bind:jaxb-api:2.3.0'
+    runtime 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+    runtime 'com.sun.xml.bind:jaxb-impl:2.3.0.1'
+    runtime 'javax.activation:activation:1.1.1'
+
+    testCompile "io.projectreactor:reactor-test"
     testCompile "org.spockframework:spock-core:${spockVersion}"
+    testCompile "org.spockframework:spock-spring:${spockVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
+
+    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.2.1'
 }
 
 ext {
@@ -65,7 +64,7 @@ asciidoctor {
 }
 
 clean {
-    delete fileTree(dir: 'src/main/resources/public')
+    delete fileTree(dir: "src/main/resources/public")
 }
 
 build {
@@ -73,28 +72,42 @@ build {
 }
 
 codenarc {
-    toolVersion = '1.0'
+    toolVersion = "1.2.1"
 }
 
 codenarcMain {
     ignoreFailures false
-    configFile file('gradle/codenarc/codenarc.groovy')
+    configFile file("gradle/codenarc/codenarc.groovy")
 }
 
 codenarcTest {
-    configFile file('gradle/codenarc/codenarcTest.groovy')
+    configFile file("gradle/codenarc/codenarcTest.groovy")
 }
 
 task publish(type: GradleBuild) {
     dependsOn asciidoctor
-    buildFile = file('publish.gradle')
-    tasks = ['gitPublishPush']
+    buildFile = file("publish.gradle")
+    tasks = ["gitPublishPush"]
 }
 
-ext['spring-restdocs.version'] = springRestDocsVersion
+ext["spring-restdocs.version"] = springRestDocsVersion
 
-//buildScan {
-//    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
-//    licenseAgree = 'yes'
-//    publishAlways()
-//}
+buildScan {
+    licenseAgreementUrl = "https://gradle.com/terms-of-service"
+    licenseAgree = "yes"
+    publishAlways()
+}
+
+ext['groovy.version'] = '2.5.0'
+
+if (JavaVersion.current().isJava9Compatible()) {
+    def jaxbJvmArgs = ['--add-modules', 'java.xml.bind']
+    tasks.withType(GroovyCompile) {
+        groovyOptions.fork = true
+        groovyOptions.forkOptions.jvmArgs.addAll(jaxbJvmArgs)
+    }
+    tasks.withType(Test) {
+        jvmArgs jaxbJvmArgs
+    }
+}
+

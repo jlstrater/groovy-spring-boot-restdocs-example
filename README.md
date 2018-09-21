@@ -21,6 +21,7 @@ You can see this talk at any of the following events:
 | API Conference DE | September 20, 2017 | Berlin, DE
 | Spring One Platform | December 7, 2017 | San Francisco, CA, USA
 | Warsaw JUG | June 26, 2018 | Warsaw, Poland
+| JavaLand | March 19 - 21, 2018 | Phantasialand, Brühl, DE
 
 Slides for previous presentations are available below:
 
@@ -54,4 +55,7 @@ Then access the app via a browser (or curl) on http://localhost:8080/html5/index
 
 ** It is very important to note that the project must be built before trying to run the project. Otherwise, the docs will not show up! **
 
-**** As of December 2017/SpringOnePlatform MongoDB is a dependency to run this project. ****
+##Requirements
+
+Java Version 8-10
+MongoDB (use default ports locally or run via Docker)
