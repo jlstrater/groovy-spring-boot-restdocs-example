@@ -55,7 +55,8 @@ Then access the app via a browser (or curl) on http://localhost:8080/html5/index
 
 ** It is very important to note that the project must be built before trying to run the project. Otherwise, the docs will not show up! **
 
-##Requirements
+## Requirements
 
 Java Version 8-10
+
 MongoDB (use default ports locally or run via Docker)
