@@ -10,12 +10,12 @@ mainClassName = "sample.ExampleGreetingsApplication"
 
 buildscript {
     repositories {
-        jcenter()
+//        jcenter()
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2" }
     }
     dependencies {
-        classpath "com.gradle:build-scan-plugin:1.9"
+        classpath "com.gradle:build-scan-plugin:2.0.2"
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:$asciidoctorVersion"
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
     }
@@ -39,7 +39,6 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
 
-    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.2.1'
 }
 
 ext {
@@ -93,12 +92,12 @@ task publish(type: GradleBuild) {
 ext["spring-restdocs.version"] = springRestDocsVersion
 
 buildScan {
-    licenseAgreementUrl = "https://gradle.com/terms-of-service"
-    licenseAgree = "yes"
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
     publishAlways()
 }
 
-ext['groovy.version'] = '2.5.0'
+ext['groovy.version'] = '2.5.4'
 
 if (JavaVersion.current().isJava9Compatible()) {
     def jaxbJvmArgs = ['--add-modules', 'java.xml.bind']
