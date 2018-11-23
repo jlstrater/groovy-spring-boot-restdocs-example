@@ -1,0 +1,43 @@
+ext {
+    snippetsDir = "$buildDir/generated-snippets"
+}
+
+test {
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+
+    doLast {
+        copy {
+            from "$buildDir/asciidoc"
+            into "$buildDir/resources/main/public"
+            include "**/*.html"
+        }
+    }
+}
+
+build {
+    dependsOn asciidoctor
+}
+
+codenarc {
+    toolVersion = "1.2.1"
+}
+
+codenarcMain {
+    ignoreFailures false
+    configFile file("gradle/codenarc/codenarc.groovy")
+}
+
+codenarcTest {
+    configFile file("gradle/codenarc/codenarcTest.groovy")
+}
+
+task publish(type: GradleBuild) {
+    dependsOn asciidoctor
+    buildFile = file("gradle/publish.gradle")
+    tasks = ["gitPublishPush"]
+}

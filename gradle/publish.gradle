@@ -1,14 +1,6 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'org.ajoberstar:gradle-git-publish:1.0.1'
-    }
+plugins {
+    id 'org.ajoberstar.git-publish' version '1.0.1'
 }
-
-apply plugin: 'org.ajoberstar.git-publish'
 
 gitPublish {
     repoUri = 'git@github.com:jlstrater/groovy-spring-boot-restdocs-example.git'
