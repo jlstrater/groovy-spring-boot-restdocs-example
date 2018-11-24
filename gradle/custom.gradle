@@ -41,3 +41,22 @@ task publish(type: GradleBuild) {
     buildFile = file("gradle/publish.gradle")
     tasks = ["gitPublishPush"]
 }
+
+buildScan {
+//    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+//    termsOfServiceAgree = "yes"
+    licenseAgreementUrl = "https://gradle.com/terms-of-service"
+    licenseAgree = "yes"
+    publishAlways()
+}
+
+if (JavaVersion.current().isJava9Compatible()) {
+    def jaxbJvmArgs = ['--add-modules', 'java.xml.bind']
+    tasks.withType(GroovyCompile) {
+        groovyOptions.fork = true
+        groovyOptions.forkOptions.jvmArgs.addAll(jaxbJvmArgs)
+    }
+    tasks.withType(Test) {
+        jvmArgs jaxbJvmArgs
+    }
+}
