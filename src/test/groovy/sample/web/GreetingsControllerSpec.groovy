@@ -26,12 +26,12 @@ class GreetingsControllerSpec extends BaseControllerSpec {
         def result = this.webTestClient.post().uri('/')
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromObject('{"message": "Hello Warsaw JUG!"}'))
+                .body(BodyInserters.fromObject('{"message": "Hello!"}'))
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
                 .jsonPath('$.id').isNotEmpty()
-                .jsonPath('$.message').isEqualTo('Hello Warsaw JUG!')
+                .jsonPath('$.message').isEqualTo('Hello!')
                 .consumeWith(document('greetings-post-example',
                     requestFields(
                         fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"))))

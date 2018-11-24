@@ -2,9 +2,10 @@ plugins {
     id "application"
     id "codenarc"
     id "groovy"
-    id "com.gradle.build-scan" version "2.0.2"
-    id "org.asciidoctor.convert" version "1.5.9.2"
-    id "org.springframework.boot" version "2.0.1.RELEASE"
+    id "com.gradle.build-scan" version "1.9"
+    id "org.asciidoctor.convert" version "1.5.3"
+    id "org.springframework.boot" version "2.0.5.RELEASE"
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
 }
 
 mainClassName = "sample.ExampleGreetingsApplication"
@@ -15,12 +16,18 @@ repositories {
     }
 }
 
-dependencies {
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
+ext {
+    asciidoctorVersion = '1.5.9.2'
+    spockVersion = '1.2-groovy-2.5'
+    springBootVersion = '2.0.0.RELEASE'
+    springRestDocsVersion = '2.0.2.RELEASE'
+    groovyVersion = '2.5.0'
+}
 
+dependencies {
     asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
 
-    compile "org.codehaus.groovy:groovy-all:2.5.0"
+    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"
     compile "org.springframework.boot:spring-boot-starter-webflux"
 
@@ -28,26 +35,13 @@ dependencies {
     testCompile "org.spockframework:spock-core:${spockVersion}"
     testCompile "org.spockframework:spock-spring:${spockVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test"
-    testCompile "org.springframework.restdocs:spring-restdocs-core:${springRestDocsVersion}"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
+
+    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.2.1'
 }
 
-buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
-    publishAlways()
-}
-
-if (JavaVersion.current().isJava9Compatible()) {
-    def jaxbJvmArgs = ['--add-modules', 'java.xml.bind']
-    tasks.withType(GroovyCompile) {
-        groovyOptions.fork = true
-        groovyOptions.forkOptions.jvmArgs.addAll(jaxbJvmArgs)
-    }
-    tasks.withType(Test) {
-        jvmArgs jaxbJvmArgs
-    }
-}
+ext["spring-restdocs.version"] = springRestDocsVersion
+ext['groovy.version'] = groovyVersion
 
 apply from: 'gradle/custom.gradle'
 
