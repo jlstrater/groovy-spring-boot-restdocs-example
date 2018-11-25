@@ -2,7 +2,7 @@ plugins {
     id "application"
     id "codenarc"
     id "groovy"
-    id "com.gradle.build-scan" version "1.9"
+    id "com.gradle.build-scan" version "2.0.2"
     id "org.asciidoctor.convert" version "1.5.3"
     id "org.springframework.boot" version "2.0.0.RELEASE"
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
