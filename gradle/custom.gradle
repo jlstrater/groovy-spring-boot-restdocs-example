@@ -1,3 +1,7 @@
+dependencies {
+    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.2.1'
+}
+
 ext {
     snippetsDir = "$buildDir/generated-snippets"
 }

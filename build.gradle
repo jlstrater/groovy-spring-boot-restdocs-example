@@ -19,8 +19,8 @@ repositories {
 ext {
     spockVersion = '1.2-groovy-2.5'
     springBootVersion = '2.0.0.RELEASE'
-    springRestDocsVersion = '2.0.2.RELEASE'
-    groovyVersion = '2.5.0'
+    springRestDocsVersion = '2.0.0.RELEASE'
+    groovyVersion = '2.5.4'
 }
 
 dependencies {
@@ -35,8 +35,6 @@ dependencies {
     testCompile "org.spockframework:spock-spring:${spockVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
-
-    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.2.1'
 }
 
 ext["spring-restdocs.version"] = springRestDocsVersion
