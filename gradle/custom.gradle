@@ -21,6 +21,7 @@ asciidoctor {
             include "**/*.html"
         }
     }
+    attributes 'imagesdir': './images'
 }
 
 build {

@@ -10,7 +10,7 @@ Jenn Strater;
 [introduction]
 = Introduction
 
-The Example API is a RESTful web service that shows how Spring REST docs works.
+The Example API is a RESTful web service that shows how Spring REST docs works. Interact with these endpoints in https://documenter.getpostman.com/view/6964523/S17nVWHG#627c80fe-7520-1ff0-8f73-9b989042bd3e[image:postman-logo.png[Postman, title="Postman", width=100]].
 
 [[overview-http-verbs]]
 == HTTP verbs
