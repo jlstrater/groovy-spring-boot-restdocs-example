@@ -5,6 +5,7 @@ plugins {
     id "com.gradle.build-scan" version "2.2.1"
     id "org.asciidoctor.convert" version "1.5.3"
     id "org.springframework.boot" version "2.1.3.RELEASE"
+    id 'org.ajoberstar.git-publish' version '2.0.0'
 }
 
 mainClassName = "sample.ExampleGreetingsApplication"
@@ -41,4 +42,5 @@ ext["spring-restdocs.version"] = springRestDocsVersion
 ext['groovy.version'] = groovyVersion
 
 apply from: 'gradle/custom.gradle'
+apply from: 'gradle/publish.gradle'
 

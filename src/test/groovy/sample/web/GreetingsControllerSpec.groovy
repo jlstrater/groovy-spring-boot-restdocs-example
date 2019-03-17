@@ -34,7 +34,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 .jsonPath('$.message').isEqualTo('Hello!')
                 .consumeWith(document('greetings-post-example',
                     requestFields(
-                        fieldWithPath('message').type(JsonFieldType.STRING).description("The greeting's message"))))
+                        fieldWithPath('message')
+                                .type(JsonFieldType.STRING)
+                                .description("The greeting's message"))))
         JsonSlurper slurper = new JsonSlurper()
         greetingId = slurper.parseText(new String(result.returnResult().body)).id
 

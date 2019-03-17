@@ -1,7 +1,4 @@
-plugins {
-    id 'org.ajoberstar.git-publish' version '1.0.1'
-}
-
+// to run, use 'gitPublishPush'
 gitPublish {
     repoUri = 'git@github.com:jlstrater/groovy-spring-boot-restdocs-example.git'
 
