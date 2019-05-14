@@ -18,16 +18,19 @@ repositories {
 
 ext {
     spockVersion = '1.2-groovy-2.5'
-    springBootVersion = '2.0.0.RELEASE'
-    springRestDocsVersion = '2.0.0.RELEASE'
-    groovyVersion = '2.5.4'
+    springBootVersion = '2.1.4.RELEASE'
+    springRestDocsVersion = '2.0.3.RELEASE'
+    groovyVersion = '2.5.7'
 }
 
 dependencies {
     asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
-    implementation (platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
+    implementation enforcedPlatform('org.springframework.boot:spring-boot-dependencies:2.1.4.RELEASE')
 
-    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+    implementation("org.codehaus.groovy:groovy:$groovyVersion") {
+        force = true
+    }
+
     compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"
     compile "org.springframework.boot:spring-boot-starter-webflux"
 
@@ -37,9 +40,6 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.springframework.restdocs:spring-restdocs-webtestclient:${springRestDocsVersion}"
 }
-
-ext["spring-restdocs.version"] = springRestDocsVersion
-ext['groovy.version'] = groovyVersion
 
 apply from: 'gradle/custom.gradle'
 apply from: 'gradle/publish.gradle'
