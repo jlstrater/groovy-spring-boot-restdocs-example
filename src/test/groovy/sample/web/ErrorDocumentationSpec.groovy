@@ -22,7 +22,7 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
                 .jsonPath('$.requestId').isNotEmpty()
                 .jsonPath('$.timestamp').isNotEmpty()
                 .jsonPath('$.path').isEqualTo('/greetings/')
-                .jsonPath('$.message').isEqualTo('')
+                .jsonPath('$.message').isEqualTo("Request method 'DELETE' not supported")
                 .jsonPath('$.status').isEqualTo(405)
                 .jsonPath('$.error').isEqualTo('Method Not Allowed')
                 .consumeWith(document('error-example',

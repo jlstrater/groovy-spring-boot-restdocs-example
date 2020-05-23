@@ -8,6 +8,8 @@ import static org.springframework.restdocs.request.RequestDocumentation.pathPara
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document
 
 import groovy.json.JsonSlurper
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.http.MediaType
 import org.springframework.restdocs.payload.FieldDescriptor
 import org.springframework.restdocs.payload.JsonFieldType
@@ -19,6 +21,9 @@ import spock.lang.Stepwise
 @SuppressWarnings('TrailingComma')
 @Stepwise
 class GreetingsControllerSpec extends BaseControllerSpec {
+
+    @Autowired
+    MongoTemplate template
 
     @Shared
     String greetingId
@@ -66,6 +71,9 @@ class GreetingsControllerSpec extends BaseControllerSpec {
                 pathParameters(parameterWithName('id').description("The greeting's id")),
                 responseFields(greeting)
         ))
+
+        cleanup:
+        template.db.drop()
     }
 
     FieldDescriptor[] greeting = new FieldDescriptor().with {
