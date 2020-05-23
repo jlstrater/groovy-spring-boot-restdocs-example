@@ -1,5 +1,6 @@
 package sample.web
 
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,6 +15,7 @@ import sample.repository.GreetingRepository
 
 import javax.validation.Valid
 
+@CompileStatic
 @RestController
 @RequestMapping('/greetings')
 class GreetingsController {
@@ -35,4 +37,5 @@ class GreetingsController {
     Mono<Greeting> getGreetingById(@PathVariable(value = 'id') String greetingId) {
         greetingsRepository.findById(greetingId)
     }
+
 }

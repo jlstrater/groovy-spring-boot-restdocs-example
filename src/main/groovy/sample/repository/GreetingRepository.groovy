@@ -6,4 +6,5 @@ import sample.model.Greeting
 
 @Repository
 interface GreetingRepository extends ReactiveCrudRepository<Greeting, String> {
+
 }

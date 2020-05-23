@@ -15,4 +15,5 @@ class Greeting {
 
     @NotBlank
     String message
+
 }

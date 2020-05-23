@@ -10,6 +10,7 @@ import org.springframework.restdocs.payload.JsonFieldType
 
 class ErrorDocumentationSpec extends BaseControllerSpec {
 
+    @SuppressWarnings('TrailingComma')
     void 'test and document error format'() {
         expect:
         this.webTestClient.delete().uri('/')
@@ -36,4 +37,5 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
                                         .description('The short message describing the error')
                 ])))
     }
+
 }

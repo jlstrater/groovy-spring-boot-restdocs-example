@@ -15,6 +15,7 @@
  */
 
 ruleset {
+
     // rulesets/basic.xml
     AssertWithinFinallyBlock
     AssignmentInConditional
@@ -66,6 +67,23 @@ ruleset {
     IfStatementBraces
     WhileStatementBraces
 
+    // rulesets/comments.xml
+//    ClassJavadoc
+    JavadocConsecutiveEmptyLines
+    JavadocEmptyAuthorTag
+    JavadocEmptyExceptionTag
+    JavadocEmptyFirstLine
+    JavadocEmptyLastLine
+    JavadocEmptyParamTag
+    JavadocEmptyReturnTag
+    JavadocEmptySeeTag
+    JavadocEmptySinceTag
+    JavadocEmptyThrowsTag
+    JavadocEmptyVersionTag
+    JavadocMissingExceptionDescription
+    JavadocMissingParamDescription
+    JavadocMissingThrowsDescription
+
     // rulesets/concurrency.xml
     BusyWait
     DoubleCheckedLocking
@@ -95,15 +113,31 @@ ruleset {
     WaitOutsideOfWhileLoop
 
     // rulesets/convention.xml
+//    CompileStatic
     ConfusingTernary
-    // CouldBeElvis
+//  CouldBeElvis
+    CouldBeSwitchStatement
+    FieldTypeRequired
     HashtableIsObsolete
     IfStatementCouldBeTernary
+    ImplicitClosureParameter
+    InvertedCondition
     InvertedIfElse
     LongLiteralWithLowerCaseL
-//    NoDef
+    MethodParameterTypeRequired
+    MethodReturnTypeRequired
+//  NoDef
+    NoDouble
+    NoFloat
+    NoJavaUtilDate
+    NoTabCharacter
     ParameterReassignment
+    PublicMethodsBeforeNonPublicMethods
+    StaticFieldsBeforeInstanceFields
+    StaticMethodsBeforeInstanceMethods
     TernaryCouldBeElvis
+    TrailingComma
+    VariableTypeRequired
     VectorIsObsolete
 
     // rulesets/design.xml
@@ -142,6 +176,7 @@ ruleset {
     /*
     CloneWithoutCloneable
     JUnitAssertEqualsConstantActualValue
+    MissingOverrideAnnotation
     UnsafeImplementationAsMap
     */
 
@@ -169,16 +204,20 @@ ruleset {
 
     // rulesets/formatting.xml
     BlankLineBeforePackage
+    BlockEndsWithBlankLine
+    BlockStartsWithBlankLine
     BracesForClass
     BracesForForLoop
     BracesForIfElse
     BracesForMethod
     BracesForTryCatchFinally
-    // ClassJavadoc
+    ClassEndsWithBlankLine
+    ClassStartsWithBlankLine
     ClosureStatementOnOpeningLineOfMultipleLineClosure
     ConsecutiveBlankLines
     FileEndsWithoutNewline
-    // LineLength
+    Indentation
+//    LineLength
     MissingBlankLineAfterImports
     MissingBlankLineAfterPackage
     SpaceAfterCatch
@@ -208,9 +247,23 @@ ruleset {
     IllegalPackageReference
     IllegalRegex
     IllegalString
+    IllegalSubclass
     RequiredRegex
     RequiredString
     StatelessClass
+
+    // rulesets/grails.xml
+    GrailsDomainHasEquals
+    GrailsDomainHasToString
+    GrailsDomainReservedSqlKeywordName
+    GrailsDomainStringPropertyMaxSize
+    GrailsDomainWithServiceReference
+    GrailsDuplicateConstraint
+    GrailsDuplicateMapping
+    GrailsMassAssignment
+    GrailsPublicControllerMethod
+    GrailsServletContextReference
+    GrailsStatelessService
 
     // rulesets/groovyism.xml
     AssignCollectionSort
@@ -231,6 +284,7 @@ ruleset {
     ExplicitCallToOrMethod
     ExplicitCallToPlusMethod
     ExplicitCallToPowerMethod
+    ExplicitCallToPutAtMethod
     ExplicitCallToRightShiftMethod
     ExplicitCallToXorMethod
     ExplicitHashMapInstantiation
@@ -251,9 +305,9 @@ ruleset {
     ImportFromSamePackage
     ImportFromSunPackages
     MisorderedStaticImports
+    NoWildcardImports
     UnnecessaryGroovyImport
     UnusedImport
-    NoWildcardImports
 
     // rulesets/jdbc.xml
     DirectConnectionManagement
@@ -303,6 +357,7 @@ ruleset {
         regex = '^[A-Z][\\$a-zA-Z0-9]*$'
     }
     ClassNameSameAsFilename
+    ClassNameSameAsSuperclass
     ConfusingMethodName
     FactoryMethodName
     FieldName {
@@ -311,11 +366,13 @@ ruleset {
         staticFinalRegex = '^logger$|^[A-Z][A-Z_0-9]*$|^serialVersionUID$'
     }
     InterfaceName
+    InterfaceNameSameAsSuperInterface
     MethodName {
         regex = '^[a-z][\\$_a-zA-Z0-9]*$|^.*\\s.*$'
     }
     ObjectOverrideMisspelledMethodName
     PackageName
+    PackageNameMatchesFilePath
     ParameterName
     PropertyName
     VariableName {
@@ -373,7 +430,7 @@ ruleset {
     UnnecessaryFinalOnPrivateMethod
     UnnecessaryFloatInstantiation
     UnnecessaryGString
-    UnnecessaryGetter
+//    UnnecessaryGetter
     UnnecessaryIfStatement
     UnnecessaryInstanceOfCheck
     UnnecessaryInstantiationToGetClass
@@ -387,9 +444,11 @@ ruleset {
     UnnecessaryPackageReference
     UnnecessaryParenthesesForMethodCallWithClosure
     UnnecessaryPublicModifier
-    //UnnecessaryReturnKeyword
+//    UnnecessaryReturnKeyword
+    UnnecessarySafeNavigationOperator
     UnnecessarySelfAssignment
     UnnecessarySemicolon
+    UnnecessarySetter
     UnnecessaryStringInstantiation
     UnnecessarySubstring
     UnnecessaryTernaryExpression
@@ -404,4 +463,5 @@ ruleset {
     UnusedPrivateMethod
     UnusedPrivateMethodParameter
     UnusedVariable
+
 }

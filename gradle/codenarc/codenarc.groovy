@@ -15,6 +15,7 @@
  */
 
 ruleset {
+
     // rulesets/basic.xml
     AssertWithinFinallyBlock
     AssignmentInConditional
@@ -66,6 +67,23 @@ ruleset {
     IfStatementBraces
     WhileStatementBraces
 
+    // rulesets/comments.xml
+//    ClassJavadoc
+    JavadocConsecutiveEmptyLines
+    JavadocEmptyAuthorTag
+    JavadocEmptyExceptionTag
+    JavadocEmptyFirstLine
+    JavadocEmptyLastLine
+    JavadocEmptyParamTag
+    JavadocEmptyReturnTag
+    JavadocEmptySeeTag
+    JavadocEmptySinceTag
+    JavadocEmptyThrowsTag
+    JavadocEmptyVersionTag
+    JavadocMissingExceptionDescription
+    JavadocMissingParamDescription
+    JavadocMissingThrowsDescription
+
     // rulesets/concurrency.xml
     BusyWait
     DoubleCheckedLocking
@@ -95,18 +113,31 @@ ruleset {
     WaitOutsideOfWhileLoop
 
     // rulesets/convention.xml
+    CompileStatic
     ConfusingTernary
     CouldBeElvis
     CouldBeSwitchStatement
+    FieldTypeRequired
     HashtableIsObsolete
     IfStatementCouldBeTernary
+    ImplicitClosureParameter
+    InvertedCondition
     InvertedIfElse
     LongLiteralWithLowerCaseL
+    MethodParameterTypeRequired
+    MethodReturnTypeRequired
     NoDef
+    NoDouble
+    NoFloat
+    NoJavaUtilDate
     NoTabCharacter
     ParameterReassignment
+    PublicMethodsBeforeNonPublicMethods
+    StaticFieldsBeforeInstanceFields
+    StaticMethodsBeforeInstanceMethods
     TernaryCouldBeElvis
     TrailingComma
+    VariableTypeRequired
     VectorIsObsolete
 
     // rulesets/design.xml
@@ -143,6 +174,7 @@ ruleset {
     /*
     CloneWithoutCloneable
     JUnitAssertEqualsConstantActualValue
+    MissingOverrideAnnotation
     UnsafeImplementationAsMap
     */
 
@@ -170,15 +202,19 @@ ruleset {
 
     // rulesets/formatting.xml
     BlankLineBeforePackage
+    BlockEndsWithBlankLine
+    BlockStartsWithBlankLine
     BracesForClass
     BracesForForLoop
     BracesForIfElse
     BracesForMethod
     BracesForTryCatchFinally
-//    ClassJavadoc
+    ClassEndsWithBlankLine
+    ClassStartsWithBlankLine
     ClosureStatementOnOpeningLineOfMultipleLineClosure
     ConsecutiveBlankLines
     FileEndsWithoutNewline
+    Indentation
     LineLength
     MissingBlankLineAfterImports
     MissingBlankLineAfterPackage
@@ -209,6 +245,19 @@ ruleset {
     RequiredString
     StatelessClass
 
+    // rulesets/grails.xml
+    GrailsDomainHasEquals
+    GrailsDomainHasToString
+    GrailsDomainReservedSqlKeywordName
+    GrailsDomainStringPropertyMaxSize
+    GrailsDomainWithServiceReference
+    GrailsDuplicateConstraint
+    GrailsDuplicateMapping
+    GrailsMassAssignment
+    GrailsPublicControllerMethod
+    GrailsServletContextReference
+    GrailsStatelessService
+
     // rulesets/groovyism.xml
     AssignCollectionSort
     AssignCollectionUnique
@@ -228,6 +277,7 @@ ruleset {
     ExplicitCallToOrMethod
     ExplicitCallToPlusMethod
     ExplicitCallToPowerMethod
+    ExplicitCallToPutAtMethod
     ExplicitCallToRightShiftMethod
     ExplicitCallToXorMethod
     ExplicitHashMapInstantiation
@@ -330,7 +380,6 @@ ruleset {
     SerializableClassMustDefineSerialVersionUID
 
     // rulesets/size.xml
-//    AbcComplexity   // DEPRECATED: Use the AbcMetric rule instead. Requires the GMetrics jar
     AbcMetric   // Requires the GMetrics jar
     ClassSize
 //    CrapMetric   // Requires the GMetrics jar and a Cobertura coverage file
@@ -397,4 +446,5 @@ ruleset {
     UnusedPrivateMethod
     UnusedPrivateMethodParameter
     UnusedVariable
+
 }

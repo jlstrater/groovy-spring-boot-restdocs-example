@@ -1,7 +1,3 @@
-dependencies {
-    codenarc 'javax.xml.bind:jaxb-api:2.3.0', 'org.codenarc:CodeNarc:1.3'
-}
-
 ext {
     snippetsDir = "$buildDir/generated-snippets"
 }
@@ -29,7 +25,7 @@ build {
 }
 
 codenarc {
-    toolVersion = "1.3"
+    toolVersion = "1.5"
 }
 
 codenarcMain {
@@ -45,21 +41,4 @@ task publish(type: GradleBuild) {
     dependsOn asciidoctor
     buildFile = file("gradle/publish.gradle")
     tasks = ["gitPublishPush"]
-}
-
-buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
-    publishAlways()
-}
-
-if (JavaVersion.current().isJava9Compatible()) {
-    def jaxbJvmArgs = ['--add-modules', 'java.xml.bind']
-    tasks.withType(GroovyCompile) {
-        groovyOptions.fork = true
-        groovyOptions.forkOptions.jvmArgs.addAll(jaxbJvmArgs)
-    }
-    tasks.withType(Test) {
-        jvmArgs jaxbJvmArgs
-    }
 }

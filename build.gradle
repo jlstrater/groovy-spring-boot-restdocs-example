@@ -2,9 +2,8 @@ plugins {
     id "application"
     id "codenarc"
     id "groovy"
-    id "com.gradle.build-scan" version "2.2.1"
     id "org.asciidoctor.convert" version "1.5.3"
-    id "org.springframework.boot" version "2.1.3.RELEASE"
+    id "org.springframework.boot" version "2.3.0.RELEASE"
 }
 
 mainClassName = "sample.ExampleGreetingsApplication"
@@ -16,10 +15,10 @@ repositories {
 }
 
 ext {
-    spockVersion = '1.2-groovy-2.5'
-    springBootVersion = '2.0.0.RELEASE'
-    springRestDocsVersion = '2.0.0.RELEASE'
-    groovyVersion = '2.5.4'
+    spockVersion = '2.0-M2-groovy-2.5'
+    springBootVersion = '2.3.0.RELEASE'
+    springRestDocsVersion = '2.0.4.RELEASE'
+    groovyVersion = '2.5.10'
 }
 
 dependencies {
@@ -29,6 +28,7 @@ dependencies {
     compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"
     compile "org.springframework.boot:spring-boot-starter-webflux"
+    compile "org.springframework.boot:spring-boot-starter-validation"
 
     testCompile "io.projectreactor:reactor-test"
     testCompile "org.spockframework:spock-core:${spockVersion}"

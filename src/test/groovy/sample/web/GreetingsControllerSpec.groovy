@@ -11,10 +11,12 @@ import groovy.json.JsonSlurper
 import org.springframework.http.MediaType
 import org.springframework.restdocs.payload.FieldDescriptor
 import org.springframework.restdocs.payload.JsonFieldType
+import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.web.reactive.function.BodyInserters
 import spock.lang.Shared
 import spock.lang.Stepwise
 
+@SuppressWarnings('TrailingComma')
 @Stepwise
 class GreetingsControllerSpec extends BaseControllerSpec {
 
@@ -23,7 +25,7 @@ class GreetingsControllerSpec extends BaseControllerSpec {
 
     void 'test and document creating a greeting with a custom name'() {
         when:
-        def result = this.webTestClient.post().uri('/')
+        WebTestClient.BodyContentSpec result = this.webTestClient.post().uri('/')
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject('{"message": "Hello!"}'))
@@ -77,4 +79,5 @@ class GreetingsControllerSpec extends BaseControllerSpec {
          fieldWithPath('[].message').type(JsonFieldType.STRING)
                  .description("The greeting's message")]
     }
+
 }
