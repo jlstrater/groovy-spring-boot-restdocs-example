@@ -19,13 +19,16 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
                 .exchange()
                 .expectStatus().isEqualTo(HttpStatus.METHOD_NOT_ALLOWED)
                 .expectBody()
+                .jsonPath('$.requestId').isNotEmpty()
                 .jsonPath('$.timestamp').isNotEmpty()
-                .jsonPath('$.path').isNotEmpty()
-                .jsonPath('$.message').isEqualTo("Request method 'DELETE' not supported")
+                .jsonPath('$.path').isEqualTo('/greetings/')
+                .jsonPath('$.message').isEqualTo('')
                 .jsonPath('$.status').isEqualTo(405)
                 .jsonPath('$.error').isEqualTo('Method Not Allowed')
                 .consumeWith(document('error-example',
-                responseFields([fieldWithPath('timestamp').type(JsonFieldType.STRING)
+                responseFields([fieldWithPath('requestId').type(JsonFieldType.STRING)
+                                        .description('The id of the request'),
+                                fieldWithPath('timestamp').type(JsonFieldType.STRING)
                                         .description("The request's timestamp"),
                                 fieldWithPath('path').type(JsonFieldType.STRING)
                                         .description('The path that generated the error'),

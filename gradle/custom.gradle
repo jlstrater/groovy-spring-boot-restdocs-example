@@ -37,8 +37,8 @@ codenarcTest {
     configFile file("gradle/codenarc/codenarcTest.groovy")
 }
 
-task publish(type: GradleBuild) {
-    dependsOn asciidoctor
-    buildFile = file("gradle/publish.gradle")
-    tasks = ["gitPublishPush"]
-}
+//task publish(type: GradleBuild) {
+//    dependsOn asciidoctor
+//    buildFile = file("gradle/publish.gradle")
+//    tasks = ["gitPublishPush"]
+//}

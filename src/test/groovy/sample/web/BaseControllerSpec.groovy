@@ -1,6 +1,5 @@
 package sample.web
 
-
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.documentationConfiguration
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 
